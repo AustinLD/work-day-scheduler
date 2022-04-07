@@ -9,6 +9,10 @@ $("#15 .information").val(localStorage.getItem("15"));
 $("#16 .information").val(localStorage.getItem("16"));
 $("#17 .information").val(localStorage.getItem("17"));
 
+numbers = [9, 10, 11, 12, 13, 14, 15, 16, 17]
+console.log(numbers)
+
+
 //targets currentDay ID in HTML
 var timeofDay = document.querySelector("#currentDay")
 
@@ -44,17 +48,17 @@ $(document).ready(function() {
 function colorUpdater() {
   Array.from(entries).forEach(row => { // calls the function below for each .row inside of entries. entries = .row
     let
-    rowIdString = row.id // 
-    if (rowIdString) {
-      rowHour = parseInt(rowIdString);
-    }
+    rowString = row.id // 
+    if (rowString) {
+      rowHour = parseInt(rowString);
+    } console.log(rowHour)
     if (rowHour) {
       if (currentHour === rowHour) {
-        $(".information").addClass("present");
+        $(".row").addClass("present"); // changes color to .present represented in the css
       } else if (currentHour < rowHour) {
-        $(".information").addClass("future");
-      } else if (currentHour > rowHour) {
-        $(".information").addClass("past");
+        $(".row").addClass("future"); // changes color to .future represented in the css
+      } else (currentHour > rowHour); {
+        $(".row").addClass("past"); // changes color to .past represented in the css
       }
     }
   });
