@@ -42,14 +42,14 @@ $(document).ready(function() {
 
 
 function colorChanger() {
-for (let i = 9; i < 18; i++) {
-  const element = document.getElementById(`${i}`);
+for (let i = 9; i < 18; i++) { // i = 9 = to ID on row
+  const element = document.getElementById(`${i}`); // getting element by id from template literal
   if (currentHour > i) {
-    $(element).addClass("past");
+    $(element).addClass("past"); // applies .past from css to .row class
   } else if (currentHour < i) {
-    $(element).addClass("future") 
+    $(element).addClass("future") // applies .future from css to .row class
   } else {
-    $(element).addClass("present")
+    $(element).addClass("present")// applies .present from css to .row class
   }
   
 }
