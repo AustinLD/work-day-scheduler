@@ -9,15 +9,11 @@ $("#15 .information").val(localStorage.getItem("15"));
 $("#16 .information").val(localStorage.getItem("16"));
 $("#17 .information").val(localStorage.getItem("17"));
 
-numbers = [9, 10, 11, 12, 13, 14, 15, 16, 17]
-console.log(numbers)
+
 
 
 //targets currentDay ID in HTML
 var timeofDay = document.querySelector("#currentDay")
-
-//targets ALL divs with row class in HTML
-const entries = document.querySelectorAll(".row");
 
 // variables equal to current hour / day
 var currentHour = moment().hour();
@@ -40,26 +36,27 @@ $(document).ready(function() {
     var time = $(this).parent().attr("id"); // stores ID attribute of parent div of .saveBtn
     localStorage.setItem(time, value); // stores time and value variables in local storage
   })
-  colorUpdater() // calls color updater function
+  colorChanger() // calls color updater function
 });
 
 
-// changes color of .row based on time of day relative to the rows dedicated time
-function colorUpdater() {
-  Array.from(entries).forEach(row => { // calls the function below for each .row inside of entries. entries = .row
-    let
-    rowString = row.id // 
-    if (rowString) {
-      rowHour = parseInt(rowString);
-    } console.log(rowHour)
-    if (rowHour) {
-      if (currentHour === rowHour) {
-        $(".row").addClass("present"); // changes color to .present represented in the css
-      } else if (currentHour < rowHour) {
-        $(".row").addClass("future"); // changes color to .future represented in the css
-      } else (currentHour > rowHour); {
-        $(".row").addClass("past"); // changes color to .past represented in the css
-      }
-    }
-  });
+
+function colorChanger() {
+for (let i = 9; i < 18; i++) {
+  const element = document.getElementById(`${i}`);
+  if (currentHour > i) {
+    $(element).addClass("past");
+  } else if (currentHour < i) {
+    $(element).addClass("future") 
+  } else {
+    $(element).addClass("present")
+  }
+  
 }
+}
+      
+    
+
+
+
+
